@@ -1,6 +1,11 @@
 import React from 'react';
 
 class MovieRow extends React.Component {
+    viewMovie() {
+        console.log('view movie');
+        const url = 'https://www.themoviedb.org/movie/' + this.props.movie.id;
+        window.location.href = url;
+    }
     render() {
         return <div>
                     <table key={this.props.movie.id}> 
@@ -10,9 +15,10 @@ class MovieRow extends React.Component {
                                     <img className="cover-img" width="100" src={this.props.movie.cover} alt="cover"/>
                                 </td>
                                 <td>
-                                    {this.props.movie.title}
+                                   <h3>{this.props.movie.title}</h3>
+                                    <h5>{this.props.movie.release_date}</h5>
                                     <p>{this.props.movie.overview}</p>
-                                    <p>{this.props.movie.year}</p>
+                                    <button onClick={this.viewMovie.bind(this)} value="view">view</button>
                                 </td>
                             </tr>
                         </tbody>

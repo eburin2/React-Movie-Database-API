@@ -10,25 +10,26 @@ class App extends Component {
     this.state = {};
     // console.log('yo');
   
-  // const movies = [
-  //   {id: 0, cover: 'https://images-na.ssl-images-amazon.com/images/I/514K35AM3KL._SY445_.jpg', title: 'Repoman', year: 1984},
-  //   {id: 1, cover: 'https://m.media-amazon.com/images/M/MV5BMjI1MDk4NjE0OV5BMl5BanBnXkFtZTcwMjExODM5NA@@._V1_UY1200_CR84,0,630,1200_AL_.jpg', title: 'Tough Guys Don\'t Dance', year: 1987}
-  // ];
+    // const movies = [
+    //   {id: 0, cover: 'https://images-na.ssl-images-amazon.com/images/I/514K35AM3KL._SY445_.jpg', title: 'Repoman', year: 1984},
+    //   {id: 1, cover: 'https://m.media-amazon.com/images/M/MV5BMjI1MDk4NjE0OV5BMl5BanBnXkFtZTcwMjExODM5NA@@._V1_UY1200_CR84,0,630,1200_AL_.jpg', title: 'Tough Guys Don\'t Dance', year: 1987}
+    // ];
 
+    
+    // let movieRows = [];
+    // movies.forEach((movie) => {
+    //   console.log(movie.id);
+    //   const movieRow = <MovieRow movie={movie} />
+    //   movieRows.push(<div key={movie.id}> {movieRow}</div>)
+    // })
+    // this.state = {rows: movieRows}
   
-  // let movieRows = [];
-  // movies.forEach((movie) => {
-  //   console.log(movie.id);
-  //   const movieRow = <MovieRow movie={movie} />
-  //   movieRows.push(<div key={movie.id}> {movieRow}</div>)
-  // })
-  // this.state = {rows: movieRows}
   this.performSearch();
 }
 
 performSearch(searchTerm) {
   console.log("perform search using moviedb");
-  const urlString = 
+  const urlString = "https://api.themoviedb.org/3/search/movie?api_key=&query=" + searchTerm;
   $.ajax({
     url: urlString,
     success: (searchResults) => {
@@ -67,7 +68,7 @@ searchHandler(event) {
           <tbody>
             <tr>
               <td>
-                <img width="75" src="green-image.png" alt="movie database logo"/>
+                <img width="75" src="/green-image.png" alt="logo"/>
               </td>
               <td>
                 <h1>MoviesDB Search</h1>
