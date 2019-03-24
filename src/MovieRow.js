@@ -15,10 +15,11 @@ class MovieRow extends React.Component {
                                     <img className="cover-img" width="100" src={this.props.movie.cover} alt="cover"/>
                                 </td>
                                 <td>
-                                   <h3>{this.props.movie.title}</h3>
-                                    <h5>{this.props.movie.release_date}</h5>
-                                    <p>{this.props.movie.overview}</p>
-                                    <button onClick={this.viewMovie.bind(this)} value="view">view</button>
+                                    <h3 className="text-padding">{this.props.movie.title}</h3>
+                                    <h5 className="text-padding">Date Released: {this.props.movie.release_date}</h5>
+                                    <h5 className="text-padding">Rating: {this.props.movie.vote_average}</h5>
+                                    <p className="text-padding">{this.props.movie.overview}</p>
+                                    <button id="view" onClick={this.viewMovie.bind(this)} value="view">view</button>
                                 </td>
                             </tr>
                         </tbody>

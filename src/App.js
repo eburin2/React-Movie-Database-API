@@ -2,12 +2,14 @@ import React, { Component } from 'react';
 import $ from 'jquery';
 import MovieRow from './MovieRow';
 import './App.css';
-
+const API_KEY = `${process.env.REACT_APP_MOVIE_API_KEY}`
+console.log(API_KEY);
 
 class App extends Component {
   constructor(props) {
     super(props);
-    this.state = {};
+    this.state = {term: ''};
+    this.searchHandler = this.searchHandler.bind(this);
     // console.log('yo');
   
     // const movies = [
@@ -27,9 +29,9 @@ class App extends Component {
   this.performSearch();
 }
 
-performSearch(searchTerm) {
+performSearch(term) {
   console.log("perform search using moviedb");
-  const urlString = "https://api.themoviedb.org/3/search/movie?api_key=&query=" + searchTerm;
+  const urlString = `https://api.themoviedb.org/3/search/movie?api_key=${API_KEY}&query=` + term;
   $.ajax({
     url: urlString,
     success: (searchResults) => {
@@ -55,11 +57,12 @@ performSearch(searchTerm) {
 }
 
 searchHandler(event) {
-  console.log(event.target.value);
-  const searchTerm = event.target.value;
-  const boundObject = this;
-  boundObject.performSearch(searchTerm);
+  const term = event.target.value;
+  this.performSearch(term);
+  this.setState({term: event.target.value});
 }
+
+
   render() {
     return (
       <div>
@@ -77,7 +80,7 @@ searchHandler(event) {
           </tbody>
         </table>
 
-        <input onChange={this.searchHandler.bind(this)} placeholder="enter search term" type="text" />
+        <input onChange={this.searchHandler} placeholder="enter search term" value={this.state.term} />
         {this.state.rows}
       </div>
     );
