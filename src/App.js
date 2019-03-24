@@ -3,7 +3,7 @@ import $ from 'jquery';
 import MovieRow from './MovieRow';
 import './App.css';
 const API_KEY = `${process.env.REACT_APP_MOVIE_API_KEY}`
-console.log(API_KEY);
+
 
 class App extends Component {
   constructor(props) {
@@ -66,21 +66,14 @@ searchHandler(event) {
   render() {
     return (
       <div>
-        
-        <table className="header">
-          <tbody>
-            <tr>
-              <td>
-                <img width="75" src="/green-image.png" alt="logo"/>
-              </td>
-              <td>
-                <h1>MoviesDB Search</h1>
-              </td>
-            </tr>
-          </tbody>
-        </table>
+        <header className="header">
+            <ul id="nav-items">
+                <li><img width="80" src="/green-image.png" alt="logo"/></li>
+                <li id="title"><h1>MoviesDB Search</h1></li>
+            </ul>
+        </header>
 
-        <input onChange={this.searchHandler} placeholder="enter search term" value={this.state.term} />
+        <input id="input" onChange={this.searchHandler} placeholder="enter search term" value={this.state.term} />
         {this.state.rows}
       </div>
     );
