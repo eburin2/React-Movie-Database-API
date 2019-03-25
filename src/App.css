@@ -5,12 +5,12 @@
 }
 
 input {
-  font-size: 24px;
+  font-size: 30px;
   display: block;
   width: 100%;
   padding-top: 5px;
   padding-bottom: 5px;
-  padding-left: 30px;
+  padding-left: 60px;
 }
 
 #nav-items {
@@ -28,7 +28,6 @@ input {
   border-radius: 10%;
   border: 1px solid black;
   width: 50px;
-
 }
 
 .text-padding {
@@ -45,6 +44,7 @@ input {
 
 #title {
   padding-top: 15px;
+  padding-left: 15px;
 }
 
 .row {
@@ -57,11 +57,9 @@ input {
 
 .header {
   background-color: #092528;
-  display: block;
   color: #fff;
-  padding-left: 20px;
+  padding-left: 50px;
 }
-
 
 .App {
   text-align: center;

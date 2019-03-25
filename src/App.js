@@ -66,7 +66,7 @@ searchHandler(event) {
   render() {
     return (
       <div>
-        <header className="header">
+        <header class="header">
             <ul id="nav-items">
                 <li><img width="80" src="/green-image.png" alt="logo"/></li>
                 <li id="title"><h1>MoviesDB Search</h1></li>
